@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Amled | Novo Condutor</title>
+    <link rel="stylesheet" href="{% static 'css/condutor-form.css' %}">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo">Amled</div>
+    <a href="{% url 'logout' %}" class="logout">Sair</a>
+</header>
+
+<main class="page">
+
+    <div class="card">
+
+        <h2>Novo Condutor</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="content">
+
+                <!-- LEFT -->
+                <div class="left">
+
+                    <label>Nome:</label>
+                    {{ form.nome }}
+
+                    <label>Cargo:</label>
+                    {{ form.cargo }}
+
+                    <label>Equipamento:</label>
+                    {{ form.equipamento }}
+
+                    <label>Empresa:</label>
+                    {{ form.empresa }}
+
+                    <label>Filial:</label>
+                    {{ form.filial }}
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="right">
+
+                    <label>Foto:</label>
+
+                    <div class="photo-box">
+                        {% if form.instance.foto %}
+                            <img src="{{ form.instance.foto.url }}">
+                        {% else %}
+                            <img src="https://i.pravatar.cc/200">
+                        {% endif %}
+                    </div>
+
+                    <input type="file" id="id_foto" name="foto" hidden>
+
+<label for="id_foto" class="btn-photo">
+    Escolher foto
+</label>
+
+<span id="photo-name">Nenhum arquivo selecionado</span>
+
+                </div>
+
+            </div>
+
+            <div class="actions">
+                <a href="{% url 'condutor_list' %}" class="btn-cancel">Cancelar</a>
+                <button type="submit" class="btn-save">Salvar</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+<script>
+    const input = document.getElementById('id_foto');
+    const preview = document.querySelector('.photo-box img');
+    const fileName = document.getElementById('photo-name');
+
+    input.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (file) {
+            fileName.textContent = file.name;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+</body>
+</html>

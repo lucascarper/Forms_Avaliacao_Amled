@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Amled | Condutores</title>
+    <link rel="stylesheet" href="{% static 'css/condutores.css' %}">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo">Amled</div>
+    <a href="{% url 'logout' %}" class="logout">Sair</a>
+</header>
+
+<main class="container">
+
+    <a href="{% url 'condutor_create' %}" class="btn-add">
+        ➕ Adicionar
+    </a>
+
+    <div class="grid">
+
+        {% for condutor in condutores %}
+        <div class="card">
+
+            <div class="foto-box">
+                {% if condutor.foto %}
+                    <img src="{{ condutor.foto.url }}" class="condutor-foto">
+                {% endif %}
+            </div>
+
+            <div class="info">
+                <h3>{{ condutor.nome }}</h3>
+
+                <div class="actions">
+                    <a href="{% url 'condutor_delete' condutor.id %}" class="btn-delete">
+                        Deletar
+                    </a>
+
+                    <a href="{% url 'condutor_update' condutor.id %}" class="btn-edit">
+                        Editar
+                    </a>
+
+                    <a href="{% url 'condutor_avaliar' condutor.id %}" class="btn-evaluate">
+                        Avaliar
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</main>
+
+</body>
+</html>

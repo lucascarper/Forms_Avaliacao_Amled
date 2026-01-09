@@ -1,0 +1,330 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Avaliação de Condutor</title>
+
+    <link rel="stylesheet" href="{% static 'css/avaliacao.css' %}">
+</head>
+<body>
+    <div class="header">
+    <span class="logo">Amled</span>
+    <a href="#" class="sair">Sair</a>
+    </div>
+
+    <div class="container">
+
+    <div class="card">
+
+        <h1>Avaliação Técnica de Condutor de Veículos Pesados</h1>
+
+        <div class="topo">
+        {% if condutor.foto %}
+            <img src="{{ condutor.foto.url }}" class="foto-condutor">
+        {% endif %}
+
+        <div class="info">
+            <h2 class="nome-condutor">{{ condutor.nome }}</h2>
+            <div class="resultado">
+            <strong>Resultado:</strong> Resultado
+            </div>
+        </div>
+        </div>
+
+        <div class="legenda">
+        <span class="atendido">Atendido</span>
+        <span class="nao-atendido">Não atendido</span>
+        </div>
+
+        <form method="post">
+        {% csrf_token %}
+
+        <!-- DOCUMENTAÇÃO -->
+        <h2>Documentação</h2>
+
+        <div class="linha">
+            <span>CNH em dia?</span>
+            <input type="radio" name="cnh" value="sim">
+            <input type="radio" name="cnh" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>CRLV em dia?</span>
+            <input type="radio" name="crlv" value="sim">
+            <input type="radio" name="crlv" value="nao">
+        </div>
+
+        <!-- TRANSMISSÃO -->
+        <h2>Transmissão de marchas</h2>
+
+        <div class="linha">
+            <span>Tem experiência com caminhão duas caixas?</span>
+            <input type="radio" name="duas_caixas" value="sim">
+            <input type="radio" name="duas_caixas" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>O condutor realiza corretamente a transmissão de marchas?</span>
+            <input type="radio" name="transmissao" value="sim">
+            <input type="radio" name="transmissao" value="nao">
+        </div>
+
+        <!-- CHECAGEM -->
+        <h2>Checagem do equipamento</h2>
+
+        <div class="linha">
+            <span>Analisou condições de pneus, rodas, lanternas, níveis de óleo, água, etc?</span>
+            <input type="radio" name="checagem_geral" value="sim">
+            <input type="radio" name="checagem_geral" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Verifica sistema pneumático e freios?</span>
+            <input type="radio" name="freios" value="sim">
+            <input type="radio" name="freios" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Regula corretamente os retrovisores?</span>
+            <input type="radio" name="retrovisores" value="sim">
+            <input type="radio" name="retrovisores" value="nao">
+        </div>
+
+        <!-- MOVIMENTAÇÃO -->
+        <h2>Movimentando e parando o veículo</h2>
+
+        <div class="linha">
+            <span>Observa a esquerda, direita e a retaguarda antes de movimentar o veículo?</span>
+            <input type="radio" name="observacao" value="sim">
+            <input type="radio" name="observacao" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Prevê necessidade de parar com antecedência?</span>
+            <input type="radio" name="previsao_parada" value="sim">
+            <input type="radio" name="previsao_parada" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Aciona os freios suavemente com antecedência?</span>
+            <input type="radio" name="freio_suave" value="sim">
+            <input type="radio" name="freio_suave" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Para com distância adequada do veículo?</span>
+            <input type="radio" name="freio_suave" value="sim">
+            <input type="radio" name="freio_suave" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Para completamente nos sinais vermelho e placas de "PARE"?</span>
+            <input type="radio" name="freio_suave" value="sim">
+            <input type="radio" name="freio_suave" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Em locais de difícil acesso, analisa o espaço antes de estacionar?</span>
+            <input type="radio" name="freio_suave" value="sim">
+            <input type="radio" name="freio_suave" value="nao">
+        </div>
+        
+
+        <!-- TRÂNSITO -->
+        <h2>Avaliação em trânsito</h2>
+
+        <div class="linha">
+            <span>Mantém distância de segurança?</span>
+            <input type="radio" name="distancia" value="sim">
+            <input type="radio" name="distancia" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Fica atento ao tráfego acessando a pista?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Mantém velocidade compatível com o segmento?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Segura adequadamente o volante com ambas as mãos?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Permanece centrado em sua faixa de direção?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Utiliza os espelhos retrovisores com frequência?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Utiliza adequadamente a buzina quando necessário?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Sinaliza com antecedência ao mudar de faixas?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Sinaliza para alertar pedestres, especialmente crianças?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Calcula adequadamente o tempo de aproximação dos semáforos?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Sinaliza para alertar veículos deixando de áreas de estacionamento ou ruas transversais?</span>
+            <input type="radio" name="faixa" value="sim">
+            <input type="radio" name="faixa" value="nao">
+        </div>
+
+        <!-- CONVERSÕES -->
+        <h2>Conversões e saídas</h2>
+
+        <div class="linha">
+            <span>Segue as regras de vias preferenciais?</span>
+            <input type="radio" name="sinalizacao" value="sim">
+            <input type="radio" name="sinalizacao" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Sinaliza adequadamente com antecedência?</span>
+            <input type="radio" name="sinalizacao" value="sim">
+            <input type="radio" name="sinalizacao" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Dirige-se a faixa adequada com antecedência do ponto de conversão/saída?</span>
+            <input type="radio" name="sinalizacao" value="sim">
+            <input type="radio" name="sinalizacao" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Efetua conversão a partir da faixa correta?</span>
+            <input type="radio" name="sinalizacao" value="sim">
+            <input type="radio" name="sinalizacao" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Efetua conversão em velocidade compatível com a segurança?</span>
+            <input type="radio" name="sinalizacao" value="sim">
+            <input type="radio" name="sinalizacao" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Converge suavemente e acessa a faixa correta de direção?</span>
+            <input type="radio" name="sinalizacao" value="sim">
+            <input type="radio" name="sinalizacao" value="nao">
+        </div>
+
+        <!-- ULTRAPASSAGENS -->
+        <h2>Ultrapassagens</h2>
+
+        <div class="linha">
+            <span>Utiliza os espelhos retrovisores?</span>
+            <input type="radio" name="ultrapassagem" value="sim">
+            <input type="radio" name="ultrapassagem" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Sinaliza suas intenções com antecedência?</span>
+            <input type="radio" name="ultrapassagem" value="sim">
+            <input type="radio" name="ultrapassagem" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Utiliza a buzina quando necessário?</span>
+            <input type="radio" name="ultrapassagem" value="sim">
+            <input type="radio" name="ultrapassagem" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Trafega de forma a manter perfeita visibilidade da via?</span>
+            <input type="radio" name="ultrapassagem" value="sim">
+            <input type="radio" name="ultrapassagem" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Não retorna a faixa de origem bruscamente?</span>
+            <input type="radio" name="ultrapassagem" value="sim">
+            <input type="radio" name="ultrapassagem" value="nao">
+        </div>
+
+        <!-- COMPORTAMENTO -->
+        <h2>Comportamento ao dirigir</h2>
+
+        <div class="linha">
+            <span>É tolerante aos erros dos outros motoristas?</span>
+            <input type="radio" name="comportamento" value="sim">
+            <input type="radio" name="comportamento" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Demonstra segurança e tranquilidade ao volante?</span>
+            <input type="radio" name="comportamento" value="sim">
+            <input type="radio" name="comportamento" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Utiliza cinto de segurança?</span>
+            <input type="radio" name="comportamento" value="sim">
+            <input type="radio" name="comportamento" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Demonstra paciência durante engarrafamentos ou imprevistos?</span>
+            <input type="radio" name="comportamento" value="sim">
+            <input type="radio" name="comportamento" value="nao">
+        </div>
+
+        <div class="linha">
+            <span>Desempenha direção com responsabilidade e segurança?</span>
+            <input type="radio" name="comportamento" value="sim">
+            <input type="radio" name="comportamento" value="nao">
+        </div>
+
+        <!-- OBSERVAÇÕES -->
+        <h2>Observações</h2>
+        <textarea maxlength="300"></textarea>
+
+        <div class="botoes-avaliacao">
+            <button type="submit" name="resultado" value="APROVADO" class="btn-aprovado">
+                APROVADO
+            </button>
+
+            <button type="submit" name="resultado" value="REPROVADO" class="btn-reprovado">
+                REPROVADO
+            </button>
+        </div>
+        <a href="{% url 'condutor_list' %}" class="btn-voltar">
+            VOLTAR
+        </a>
+
+        </form>
+
+    </div>
+    </div>
+</body>
+</html>

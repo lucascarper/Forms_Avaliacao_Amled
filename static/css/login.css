@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #0a2cff, #1a0ca8);
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+/* Lado esquerdo */
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left h1 {
+    color: white;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+/* Lado direito */
+.right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: white;
+    width: 360px;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+/* Inputs */
+.login-card input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #e0e0e0;
+    font-size: 18px;
+    outline: none;
+}
+
+/* Botão */
+.login-card button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #e0e0e0;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-card button:hover {
+    background: #d0d0d0;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}

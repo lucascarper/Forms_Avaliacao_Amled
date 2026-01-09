@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+.topbar {
+    height: 70px;
+    background: linear-gradient(135deg, #0a2cff, #1a0ca8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.logout {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* PAGE */
+body {
+    background: #e0e0e0;
+}
+
+.page {
+    padding: 40px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card h2 {
+    color: #1a0ca8;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* CONTENT */
+.content {
+    display: flex;
+    gap: 60px;
+}
+
+/* LEFT */
+.left {
+    flex: 2;
+}
+
+.left label {
+    color: #1a0ca8;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.left input {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0 20px;
+    border: none;
+    border-radius: 12px;
+    background: #4b46e5;
+    color: white;
+    font-size: 18px;
+}
+
+/* RIGHT */
+.right {
+    flex: 1;
+}
+
+.right label {
+    color: #1a0ca8;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.photo-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 10px 0 10px;
+}
+
+.photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right input[type="file"] {
+    margin-top: 10px;
+}
+
+/* ACTIONS */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 40px;
+}
+
+.btn-cancel {
+    background: #ff3b3b;
+    color: white;
+    padding: 14px 40px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-save {
+    background: #4b46e5;
+    color: white;
+    padding: 14px 50px;
+    border-radius: 14px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* FOTO UPLOAD */
+.btn-photo {
+    display: inline-block;
+    background: #4b46e5;
+    color: white;
+    padding: 12px 26px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.btn-photo:hover {
+    background: #372fdc;
+}
+
+#photo-name {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}

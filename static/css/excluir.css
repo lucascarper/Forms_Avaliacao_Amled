@@ -1,0 +1,102 @@
+/* BASE */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #e0e0e0;
+    margin: 0;
+}
+
+/* TOPO */
+.top-bar {
+    height: 70px;
+    background: linear-gradient(90deg, #0b2bd4, #1c1cff);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.logo {
+    color: white;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.logout {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* CONTEÚDO */
+.page {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    width: 900px;
+    background: white;
+    border-radius: 20px;
+    padding: 45px 70px 55px;
+    text-align: center;
+}
+
+/* TEXTOS */
+.card h1 {
+    color: #0b2bd4;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 45px;
+}
+
+.pergunta {
+    color: #0b2bd4;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.nome {
+    color: #0b2bd4;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+/* FOTO */
+.card img {
+    width: 140px;
+    height: auto;            /* MUITO IMPORTANTE */
+    border-radius: 6px;
+    margin-bottom: 65px;
+}
+
+/* BOTÕES */
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 140px;
+}
+
+.btn {
+    width: 160px;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cancelar {
+    background: #4b4be3;
+    color: white;
+}
+
+.excluir {
+    background: #ff3333;
+    color: white;
+}

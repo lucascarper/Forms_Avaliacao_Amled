@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Condutor</title>
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/excluir.css' %}">
+</head>
+<body>
+
+<header class="top-bar">
+    <span class="logo">Amled</span>
+    <a href="{% url 'logout' %}" class="logout">Sair</a>
+</header>
+
+<main class="page">
+    <div class="card">
+
+        <h1>Excluir Condutor</h1>
+
+        <p class="pergunta">
+            Tem certeza que deseja excluir o condutor?
+        </p>
+
+        <p class="nome">
+            ({{ condutor.nome }})
+        </p>
+
+        {% if condutor.foto %}
+            <img src="{{ condutor.foto.url }}" alt="Foto do condutor">
+        {% endif %}
+
+        <form method="post" class="botoes">
+            {% csrf_token %}
+
+            <a href="{% url 'condutor_list' %}" class="btn cancelar">
+                Cancelar
+            </a>
+
+            <button type="submit" class="btn excluir">
+                Excluir
+            </button>
+        </form>
+
+    </div>
+</main>
+
+</body>
+</html>
